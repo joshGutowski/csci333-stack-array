@@ -4,7 +4,10 @@
 class Stack {
  private:
   int* theStack;
+  int* temp;
   int top;
+  int cap;
+  int* hold;
 
  public:
   Stack(int initialSize = 10);

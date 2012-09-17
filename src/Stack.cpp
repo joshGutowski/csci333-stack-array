@@ -4,6 +4,7 @@
 Stack::Stack(int initialSize) {
   theStack = new int[initialSize];
   top = 0;
+  cap = initialSize;
 }
 
 Stack::~Stack() {
@@ -16,6 +17,15 @@ void Stack::push(int value) {
   // copy all elements to new stack
   // delete old stack
   // point old stack pointer to new stack
+  if(top >= cap) {
+    temp = new int[2*cap];
+    for(int i=0; i<=cap; ++i) {
+      temp[i] = theStack[i];
+    }
+    
+    delete[] theStack;
+    theStack = temp;
+  }
   theStack[top] = value;
   top++;
 }
