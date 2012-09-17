@@ -25,6 +25,7 @@ void Stack::push(int value) {
     
     delete[] theStack;
     theStack = temp;
+    cap = cap*2;
   }
   theStack[top] = value;
   top++;
